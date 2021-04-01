@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 from player import Player
 from item import Item
-
-# this should be what runs the game
+from room import Room
 
 def main():
 
     new_player = Player()
     
+    new_room = Room()
+
     key = Item("key", "a small brass key")
     #  items = [("key", "a small brass key"),
     #           ("letter", "It reads: 'how about a riddle'")]
@@ -23,6 +24,7 @@ def main():
     print(new_player)
     print(key)
     new_player.examine(key)    
+    new_player.move(new_room)
 
 
 main()

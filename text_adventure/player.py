@@ -9,8 +9,12 @@ class Player:
     def examine(self, item):
         print(item.examined())
 
-    def move(self, direction):
-        pass
+    def move(self, room_item):
+        place = input("""To where would you like to move?
+
+                             (p)iano d(e)sk (d)oor 
+                        """)
+        room_item.move_to(place)
 
     def take(self, item):
 #          try:
