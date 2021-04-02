@@ -15,11 +15,9 @@ def main():
 
 
         
-    #while True:
-    new_prompt.main_prompt(new_player, new_room)
+    while True:
+        new_prompt.main_prompt(new_player, new_room)
 
-    # new_player.move(new_room)
-    # new_player.used(new_room)
 
 
 main()
