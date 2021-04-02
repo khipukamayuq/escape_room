@@ -6,8 +6,8 @@ class Item:
                  name,
                  description,
                  visible=False,
-                 takeable=False,
                  landing="none",
+                 known="none",
                  used="none"):
         self.name = name
         self.description = description

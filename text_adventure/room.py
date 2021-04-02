@@ -24,7 +24,6 @@ class Room(Item):
                                         It reads: 'Every Good Boy Deserves Fudge'.
                                         The first letter of each word is cirled in red.
                                         """,
-                           takeable=True,
                            visible=False,
                            used="")
         self.drawer = Item(name="drawer",
@@ -32,7 +31,8 @@ class Room(Item):
                            visible=False)
         self.tune = Item(name="song",
                          description="The notes you learned from the letter you found.",
-                         takeable=True)
+                         known=False)
+        self.door_open = False
 
     def __getitem__(self, attr_name):
         return self.__getattribute__(attr_name)
@@ -44,29 +44,32 @@ class Room(Item):
 
         template = "You move toward the "
 
-        if pattern.group() == 'p':
-            print(template + self.piano.name + " " + self.piano.landing)
-            new_location = self.piano.name
+        if pattern:
+            if pattern.group() == 'p':
+                print(template + self.piano.name + " " + self.piano.landing)
+                new_location = self.piano.name
 
-            return new_location
+                return new_location
 
-        elif pattern.group() == 'e':
-            print(template + self.desk.name + " " + self.desk.landing)
-            new_location = self.desk.name
+            elif pattern.group() == 'e':
+                print(template + self.desk.name + " " + self.desk.landing)
+                new_location = self.desk.name
 
-            return new_location
+                return new_location
 
-        elif pattern.group() == 'd':
-            print(template + self.door.name + " " + self.door.landing)
-            new_location = self.door.name
+            elif pattern.group() == 'd':
+                print(template + self.door.name + " " + self.door.landing)
+                new_location = self.door.name
 
-            return new_location
+                return new_location
 
+            else:
+                print("""
+                        You stagger in-place. That blow to your head may
+                        have done more damage than you thought.
+                      """)
         else:
-            print("""
-                    You stagger in-place. That blow to your head may
-                    have done more damage than you thought.
-                  """)
+            print("Your legs wobble beneath you.")
 
     def examined(self, location):
         if location != "none":
@@ -75,26 +78,24 @@ class Room(Item):
             if thing.name == "desk":
                 self.drawer.visible = True
 
-            print(self.drawer.visible)
             print(thing.description)
         else:
             print("It's too hard to see from here.")
 
-    def used(self):
-        thing = self.__getitem__(item)
+    def used(self, item_to_use):
+        use_thing = self.__getitem__(item_to_use)
 
-        if thing.name == "drawer":
+        if use_thing.name == "drawer":
             self.letter.visible = True
             print("There is a letter in the drawer:")
-        elif thing.name == "letter":
+        elif use_thing.name == "letter":
             print(self.letter.description)
-            taken(self.tune)
-
-
-        #  elif thing.name == "piano":
-        #      pass
-        #  else:
-            
-    def taken(self, item):
-        print(f"You remember the tune for later... just in case.")
+            self.tune.known = True
+            print("""
+                    You recognize the mnemonic but
+                    can't place it. Maybe having a look
+                    at something in here will jog your memory
+                    """)
+        else:
+            print("Whatever you were expecting doesn't happen.")            
             

@@ -19,19 +19,20 @@ class Prompt():
         action = input("""
                         What would you like to do?
 
-                        e(x)amine  (m)ove  (t)ake  (u)se
+                        e(x)amine  (m)ove  (u)se
                         """)
 
         pattern = re.search(r"x|^m|^t|^u", action)
 
-        if pattern.group() == "x":
-            return player.examine(room)
-        elif pattern.group() == "m":
-            return player.move(room) 
-        elif pattern.group() == "t":
-            return player.take()
-        elif pattern.group() == "u":
-            return player.use(room)
+        if pattern:
+            if pattern.group() == "x":
+                return player.examine(room)
+            elif pattern.group() == "m":
+                return player.move(room) 
+            elif pattern.group() == "u":
+                return player.use(room)
+            else:
+                print("You're not making any sense")
         else:
-            print("You're not making any sense")
+            print("Your confused mumbles aren't getting you out of here.")
             

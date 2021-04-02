@@ -46,25 +46,56 @@ class Player:
 
             drawer_answer = re.search(r"^y", to_use.lower())
 
-            if drawer_answer.group() == "y":
-                room.used("drawer")
+            if drawer_answer:
+                if drawer_answer.group() == "y":
+                    room.used("drawer")
+                else:
+                    print("Maybe you don't want to escape?")
+
+                open_letter = input("""
+                                        Read the letter?
+
+                                            (y)es  (n)o
+                                   """)
+
+                letter_answer = re.search(r"^y", open_letter.lower())
+
+                if letter_answer:
+                    if letter_answer.group() == "y":
+                        room.used("letter")
+                    else:
+                        print("Don't give up now!")
             else:
-                print("You should stop wasting time.")
+                    print("You should stop wasting time.")
 
-            open_letter = input("""
-                            Read the letter?
+        elif location == "piano" and room.tune.known == True:
+            print("""
+                    The circled letters on the note suddenly make sense
+                    when looking at the worn piano keys! 'Every Good Boy
+                    Deserves Fudge' might be the keys 'E,' 'G,' 'B,' 'D,'
+                    'F'.
+                  """)
 
-                            (y)es  (n)o
-                           """)
+            play_tune = input("""
+                                Would you like to play the keys?
 
-            letter_answer = re.search(r"^y", open_letter.lower())
+                                    (y)es  (n)o
+                              """)
 
-            if letter_answer.group() == "y":
-                room.used("letter")
-            else:
-                print("You should stop wasting time.")
+            play_answer = re.search(r"^y", play_tune.lower())
 
-        #elif 
+            if play_answer:
+                if play_answer.group() == "y":
+                    print("""
+                            You tickle the ivories as best you can.
+                            Suddenly the door swings open.
+
+                            You're free!!
+                        """)
+                    room.door_open = True
+                else:
+                    print("Now is not the time to be self conscious of your playing!")
+
         else:
             print("There's nothing obvious to use.")
 
