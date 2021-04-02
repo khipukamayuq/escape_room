@@ -10,20 +10,13 @@ def main():
     
     new_room = Room()
 
-    key = Item("key", "a small brass key")
-    #  items = [("key", "a small brass key"),
-    #           ("letter", "It reads: 'how about a riddle'")]
+    key = Item("letter",
+               """It reads: 'Every Good Boy Deserves Fudge'.
+               The first letter of each word is cirled in red.""")
 
-#      for item in items:
         
     #while True:
     # some sort of intro/setup
-    # run script
-    # capture user input
-    print('This is the game.')
-    print(new_player)
-    print(key)
-    new_player.examine(key)    
     new_player.move(new_room)
 
 
