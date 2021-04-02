@@ -8,17 +8,17 @@ class Item:
                  visible=False,
                  takeable=False,
                  landing="none",
-                 use="none"):
+                 used="none"):
         self.name = name
         self.description = description
         self.landing = landing
-        self.use = use
+        self.used = used
 
     def examined(self):
         print(self.description)
 
     def used(self):
-        print(self.use[1])
+        print(self.used)
     
     def taken(self):
         print(f"You put the {self.name} in your inventory.")

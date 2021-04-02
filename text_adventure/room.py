@@ -9,25 +9,26 @@ class Room(Item):
         self.piano = Item(name="piano",
                           description="Clearly, an unused upright piano. The keyboard cover is closed.",
                           visible=True,
-                          landing="The piano appears quite dusty",
-                          use={"key_cover": ""})
+                          landing="The piano appears quite dusty. You wonder if anyone has played this recently.",
+                          used="""You lift the keyboard cover and rest it in place. You notice some of
+                                the keys appear more worn than others""")
         self.desk = Item(name="desk",
-                         description="An escritoire",
+                         description="An escritoire. There seems to be only a single drawer.",
                          visible=True,
                          landing="An ornate antique writing desk",
-                         use="")
+                         used="You open the drawer revealing an unaddressed letter.")
         self.door = Item(name="door",
                          description="Nothing seems to stand out.",
                          visible=True,
-                         landing="You stand before an arched, heavy wooden door with no doorknob or keyhole",
-                         use="")
+                         landing="You stand before an arched, heavy wooden door with no doorknob or keyhole")
         self.letter = Item(name="letter",
                            description="""It reads: 'Every Good Boy Deserves Fudge'.
                            The first letter of each word is cirled in red.""",
                            takeable=True,
-                           use="")
+                           used="")
 
     def move_to(self, place):
+        print(place)
         place_lower = place.lower()
 
         pattern = re.search(r"^p|e|^d", place_lower)
@@ -41,6 +42,9 @@ class Room(Item):
         elif pattern.group == 'd':
             print(template + self.door.name + " " + self.door.landing)
         else:
-            print("That blow to your head may have done more damage than you thought.")
+            print("""
+                    You stagger in-place. That blow to your head may
+                    have done more damage than you thought.
+                  """)
 
             
