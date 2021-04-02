@@ -11,7 +11,7 @@ Simple interactive fiction/text-based game.
 * create class and instantiate an object of that class; populate with data
 * create and call 3 functions/methods; set values dynamically. couple `returns` that bring back data used elsewhere
 * use regex for text validation
-* (a stretch) implemented __`___getitem___` within Room class and access items using it; so sorta a dictionary that I'm retrieving values from
+* (a stretch) implemented `___getitem___` within Room class and access items using it; so sorta a dictionary that I'm retrieving values from
 
 ### Use
 
