@@ -4,6 +4,17 @@ Code: <Louisville> Jan 2021 Python Final Project
 
 Simple interactive fiction/text-based game.
 
+### About
+
+This is a text based puzzle game inspired by old fashioned point-and-click RPGs (specifically, my fave,
+Shadowgate). Unnamed player wakes up in a strange room with no obvious way out. Player can move about the
+room, inspect objects, and, potentially, use objects in order to figure out how to escape the room. There's
+not actually a lot here. A single riddle can be found. When it is found, it unlocks using a perhaps previously
+inspected/used item that will then open the door and end the game.
+
+Despite a desparate few late nights of coding to meet the deadline, I had a lot of fun with this. Needs a lot
+of cleanup, but I can see adding more here both in terms of story and puzzles and other interactivity (like, I
+meant to include a player inventory and the ability to take items).
 
 ### Features implemented:
 
