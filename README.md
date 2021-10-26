@@ -12,9 +12,9 @@ room, inspect objects, and, potentially, use objects in order to figure out how 
 not actually a lot here. A single riddle can be found. When it is found, it unlocks using a perhaps previously
 inspected/used item that will then open the door and end the game.
 
-Despite a desparate few late nights of coding to meet the deadline, I had a lot of fun with this. Needs a lot
-of cleanup, but I can see adding more here both in terms of story and puzzles and other interactivity (like, I
-meant to include a player inventory and the ability to take items).
+I had a lot of fun with this, though it needs a good amount of cleanup. I will see adding more here both in
+terms of story and puzzles and other interactivity (like, I meant to include a player inventory and the
+ability to take items).
 
 ### Features implemented:
 
@@ -35,7 +35,3 @@ a selection for one of three actions. Some actions require a target (i.e. a seco
 and will prompt further when necessary. Player is free to explore the room and 
 examine or use items in the room. Certain action/options/story-advancement are
 only available when conditions have been met.
-
-This is a huge slop of sphagetti. Written primarily stream-of-consciousness over the last 
-48hrs or so. I'm so sorry.
-
